@@ -29,7 +29,7 @@ public class escolhaComida {
                     programaAberto = false;
                     break;
                 default:
-                    System.out.println("ERRO 404: Opção Inválida, valor não identificado!");
+                    System.out.println("ERRO 404: Opção Inválida, valor não identificado!\nEscolha outra opção: ");
                     break;
             }
         }while (programaAberto == true);
