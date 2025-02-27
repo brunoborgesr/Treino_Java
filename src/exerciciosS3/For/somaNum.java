@@ -15,7 +15,7 @@ public class somaNum {
 
         for(int contador = 1; contador <= num; contador++){
             soma+=num;
-            System.out.printf("%d° soma = %d\n", contador, soma);
+            System.out.printf("%d° valor = %d\n", contador, soma);
         }
     }
 }
