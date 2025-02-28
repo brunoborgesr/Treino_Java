@@ -19,6 +19,11 @@ public class menuOpcoes {
                 case 4:
                     programaRodando = false;
                     System.out.println("Fechando o Programa");
+                    break;
+                default:
+                    System.out.println("OPÇÃO INVÁLIDA");
+                    System.out.println("FECHANDO PROGRAMA");
+                    programaRodando = false;
             }
         }while (programaRodando == true);
     }
