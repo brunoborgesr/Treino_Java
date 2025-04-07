@@ -1,4 +1,4 @@
-package treinoPOOGuanabara.Banco;
+package exerciciosS5.Banco;
 
 public class indexBanco {
     public static void main(String[] args){
