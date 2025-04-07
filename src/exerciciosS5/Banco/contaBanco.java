@@ -1,4 +1,4 @@
-package treinoPOOGuanabara.Banco;
+package exerciciosS5.Banco;
 
 //As linhas de código que estão em comentário são os métodos que não estou utilizando no momento
 

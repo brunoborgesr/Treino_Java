@@ -1,4 +1,4 @@
-package treinoPOOGuanabara.tiposDeCanetas;
+package exerciciosS5.tiposDeCanetas;
 
 public class Caneta {
     public String modelo;
