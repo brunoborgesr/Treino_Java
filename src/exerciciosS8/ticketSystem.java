@@ -1,20 +1,13 @@
 package exerciciosS8;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class ticketSystem {
 
-    Map<String, Double> MapaTicket = new HashMap<>();
     Scanner entrada = new Scanner (System.in);
-    Double valor;
-    String numero;
+    double valor = 0;
 
     //Atributo
-    private String numTicket;
     private boolean pago;
-    private double saldo;
     private double preco;
     private boolean ticketGerado;
 
@@ -33,8 +26,20 @@ public class ticketSystem {
     }
 
     public void setPreco(double preco) {
-        System.out.print("---------------PAGAMENTO---------------" +
-                "\n - Para pagar, Informe o tempo que você ficou no estacionamento (em MINUTOS): ");
+        this.preco = preco;
+    }
+
+    public boolean isPago() {
+        return pago;
+    }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
+
+    //Métodos
+    public void definirTempo(){
+        System.out.print("- Informe o tempo que você ficou no estacionamento (em MINUTOS): ");
         String valorTempo = entrada.nextLine();
         Double tempo = Double.parseDouble(valorTempo);
         if (tempo >= 0 ){
@@ -47,50 +52,25 @@ public class ticketSystem {
             }else if (tempo > 60){
                 this.preco = 17;
             }
+            this.valor = preco;
         }else {
             System.out.println("O tempo informado é inválido!");
         }
-        System.out.println("O valor que você deve pagar é :" + preco);
+        System.out.println("- O valor que você deve pagar é: " + preco);
     }
-
-    public String getNumTicket() {
-        return numTicket;
-    }
-
-    public void setNumTicket(String numTicket) {
-        for (Map.Entry<String, Double> tickets : MapaTicket.entrySet()){
-            numero = "Ticket " + tickets.getKey() + 1;
-            valor = preco;
-        }
-        this.numTicket = numTicket;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    public boolean isPago() {
-        return pago;
-    }
-
-    public void setPago(boolean pago) {
-        this.pago = pago;
-    }
-
-    //Métodos
     public void pagarTicket(){
-
+        if(isPago() == false){
+            this.setPago(true);
+            System.out.println("- O seu ticket foi pago com sucesso!" +
+                    "\n- Valor de pagamento adicionado ao saldo das operações");
+        }else{
+            System.out.println("Você já pagou o seu ticket!");
+        }
     }
 
     //Construtor
     public ticketSystem() {
-        this.setNumTicket(numero);
         this.setPago(false);
-        this.setSaldo(valor);
         this.setTicketGerado(true);
     }
 }
