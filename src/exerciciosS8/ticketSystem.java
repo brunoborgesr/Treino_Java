@@ -42,10 +42,10 @@ public class ticketSystem {
     //Métodos
     public void definirTempo() {
         painelTempo = true;
-        do{
+        do {
             System.out.print("- Informe o tempo que você ficou no estacionamento (em MINUTOS): ");
             String valorTempo = entrada.nextLine();
-            if (valorTempo.matches("^\\d+$")){
+            if (valorTempo.matches("^\\d+$")) {
                 Double tempo = Double.parseDouble(valorTempo);
                 if (tempo >= 0) {
                     if (tempo >= 0 && tempo <= 10) {
@@ -63,10 +63,10 @@ public class ticketSystem {
                 } else {
                     System.out.println("O tempo informado é inválido! Digite novamente...\\n\"");
                 }
-            }else{
+            } else {
                 System.out.println("O tempo informado é inválido! Digite novamente...\n");
             }
-        }while(painelTempo);
+        } while (painelTempo);
     }
 
     public void pagarTicket() {
