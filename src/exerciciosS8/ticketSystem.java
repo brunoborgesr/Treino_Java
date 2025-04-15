@@ -1,10 +1,12 @@
 package exerciciosS8;
+
 import java.util.Scanner;
 
 public class ticketSystem {
 
-    Scanner entrada = new Scanner (System.in);
+    Scanner entrada = new Scanner(System.in);
     double valor = 0;
+    boolean painelTempo;
 
     //Atributo
     private boolean pago;
@@ -38,32 +40,41 @@ public class ticketSystem {
     }
 
     //Métodos
-    public void definirTempo(){
-        System.out.print("- Informe o tempo que você ficou no estacionamento (em MINUTOS): ");
-        String valorTempo = entrada.nextLine();
-        Double tempo = Double.parseDouble(valorTempo);
-        if (tempo >= 0 ){
-            if (tempo >= 0 && tempo <= 10){
-                this.preco = 0;
-            }else if (tempo > 10 && tempo <= 30){
-                this.preco = 12;
-            }else if (tempo > 30 && tempo <= 60){
-                this.preco = 15;
-            }else if (tempo > 60){
-                this.preco = 17;
+    public void definirTempo() {
+        painelTempo = true;
+        do{
+            System.out.print("- Informe o tempo que você ficou no estacionamento (em MINUTOS): ");
+            String valorTempo = entrada.nextLine();
+            if (valorTempo.matches("^\\d+$")){
+                Double tempo = Double.parseDouble(valorTempo);
+                if (tempo >= 0) {
+                    if (tempo >= 0 && tempo <= 10) {
+                        this.preco = 0;
+                    } else if (tempo > 10 && tempo <= 30) {
+                        this.preco = 12;
+                    } else if (tempo > 30 && tempo <= 60) {
+                        this.preco = 15;
+                    } else if (tempo > 60) {
+                        this.preco = 17;
+                    }
+                    this.valor = preco;
+                    System.out.println("- O valor que você deve pagar é: " + preco);
+                    painelTempo = false;
+                } else {
+                    System.out.println("O tempo informado é inválido! Digite novamente...\\n\"");
+                }
+            }else{
+                System.out.println("O tempo informado é inválido! Digite novamente...\n");
             }
-            this.valor = preco;
-        }else {
-            System.out.println("O tempo informado é inválido!");
-        }
-        System.out.println("- O valor que você deve pagar é: " + preco);
+        }while(painelTempo);
     }
-    public void pagarTicket(){
-        if(isPago() == false){
+
+    public void pagarTicket() {
+        if (isPago() == false) {
             this.setPago(true);
             System.out.println("- O seu ticket foi pago com sucesso!" +
                     "\n- Valor de pagamento adicionado ao saldo das operações");
-        }else{
+        } else {
             System.out.println("Você já pagou o seu ticket!");
         }
     }
